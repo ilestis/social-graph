@@ -3,9 +3,11 @@
 Dependencies
 * PHP >= 5.4
 * Laravel 5.0
-* Mockery dev-master
 * PHPUnit
-
+* Mcrypt PHP Extension
+* OpenSSL PHP Extension
+* Mbstring PHP Extension
+* Tokenizer PHP Extension
 
 ## Installation
 

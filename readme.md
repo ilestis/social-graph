@@ -12,20 +12,20 @@ Dependencies
 ## Installation
 
 
-    git checkout git@github.com:ilestis/socialgraph .
+    git checkout git@github.com:ilestis/social-graph.git .
     composer install
     
 ## Database
 
 First, create a new empty database for the application. 
-Next, a ```.env``` file in your application root with the following content:
+Next, create a ```.env``` file in your application root with the following content:
 
     DB_HOST=localhost
     DB_DATABASE=your_db
     DB_USERNAME=your_user
     DB_PASSWORD=your_pwd
     
-Next, we need to create the DB by running the following command in your application root.
+We also need to create the tables by running the following command in your application root.
 
     php artisan migrate
     

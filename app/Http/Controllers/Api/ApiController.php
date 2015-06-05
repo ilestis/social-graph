@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers\Api;
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use App\Http\Controllers\Controller;
 use Response;
 

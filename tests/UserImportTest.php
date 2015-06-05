@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Written by Jeremy Payne
+ */
+
 class UserImportTest extends TestCase
 {
     /**

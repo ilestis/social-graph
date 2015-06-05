@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use SocialGraph\User\Models\User;
 
 class ApiTest extends TestCase

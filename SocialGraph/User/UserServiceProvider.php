@@ -1,5 +1,9 @@
 <?php namespace SocialGraph\User;
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use Illuminate\Support\ServiceProvider;
 use Route, View, App, DB;
 

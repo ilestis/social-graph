@@ -1,5 +1,9 @@
 <?php namespace SocialGraph\User\Models;
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use Illuminate\Database\Eloquent\Model;
 
 class User extends Model

@@ -1,5 +1,9 @@
 <?php namespace SocialGraph\User\Importers;
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 

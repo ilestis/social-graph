@@ -1,5 +1,9 @@
 <?php namespace App\Http\Controllers\Api\User;
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use App\Http\Controllers\Api\ApiController;
 use SocialGraph\User\Models\User;
 

@@ -1,5 +1,9 @@
 <?php namespace SocialGraph\User\Api;
 
+/**
+ * Written by Jeremy Payne
+ */
+
 use SocialGraph\User\Models\Relationship;
 use SocialGraph\User\Models\User;
 

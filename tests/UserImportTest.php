@@ -3,7 +3,7 @@
 class UserImportTest extends TestCase
 {
     /**
-     * Test the User Data Importer command
+     * Test the User Data Importer command works properly
      */
     public function testUserImportCommand()
     {

@@ -28,6 +28,7 @@ class FriendApi
 
     /**
      * Build an array with the friends of a user
+     *
      * @param User $user
      * @return array
      */
@@ -46,6 +47,7 @@ class FriendApi
 
     /**
      * Build an array with the friends of friends of a user
+     *
      * @param User $user
      * @return array
      */
@@ -54,13 +56,7 @@ class FriendApi
         // Get all the friends of the user
         $data = [];
 
-        // Ids of my friends for filtering
-        $friends = $user->relationships()->lists('relation_id');
-
-        // Find friends of my friends who aren't me or them
-        $ignore = $friends;
-        $ignore[] = $user->id;
-        $relations = $this->relation->whereIn('user_id', $friends)->whereNotIn('relation_id', $ignore)->groupBy('relation_id')->get();
+        $relations = $this->relation->indirectFriends($user)->get();
 
         foreach($relations as $friend){
             $data[] = $friend->relation;
@@ -72,24 +68,14 @@ class FriendApi
     /**
      * Suggested friends:
      * Return people in the group who know 2 or more direct friends of the chosen person, but are not directly connected to her.
+     *
      * @param User $user
      */
     public function suggest(User $user)
     {
-        // Get friends of the current user
-        $friends = $user->relationships()->lists('relation_id');
-
         $data = [];
-        // Search for people who know at least two friends of the list but aren't connected to the current user
-        // SELECT user_id, COUNT(*) as cpt FROM user_relationships where relation_id in (1, 3) group by user_id having cpt >= 2;
-        $users = $this->relation
-            ->select(['user_id', DB::raw('COUNT(*) as cpt')])
-            ->with('user')
-            ->whereIn('relation_id', $friends)
-            ->where('user_id', '<>', $user->id)
-            ->groupBy('user_id')
-            ->having('cpt', '>=', '2')
-            ->get();
+
+        $users = $this->relation->findSuggestions($user)->get();
         foreach($users as $relation) {
             $data[] = $relation->user;
         }
